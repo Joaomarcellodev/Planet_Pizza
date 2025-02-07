@@ -14,16 +14,11 @@ O **Planet Pizza** é um **Progressive Web App (PWA)** desenvolvido para servir 
 
 ## 🌟 Prévia do Projeto
 
-### 💻 Desktop
-<div align="center">
-  <img height="200" src="https://github.com/Joaomarcellodev/Planet-Pizza/blob/main/git/desktop.png?raw=true" alt="Prévia do Planet Pizza no Desktop" />
-</div>
-
 ---
 
 ### 📱 Mobile
 <div align="center">
-  <img height="400" src="https://github.com/Joaomarcellodev/Planet-Pizza/blob/main/git/mobile.png?raw=true" alt="Prévia do Planet Pizza no Mobile" />
+  <img height="400" src="https://github.com/Joaomarcellodev/Planet_Pizza/blob/main/git/planet_pizza_mobile.png?raw=true" alt="Prévia do Planet Pizza no Mobile" />
 </div>
 
 ---
