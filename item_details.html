@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Planet Pizzaria</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header-details">
+      <img
+        src="./assets/pizza_calabresa.jpg"
+        alt="Pizza de calabresa"
+        class="image-item"
+      />
+
+      <div class="options-details">
+        <a href="index.html">
+          <div class="icon-option">
+            <i class="bx bx-chevron-left"></i>
+          </div>
+        </a>
+
+        <div class="right-option">
+          <div class="icon-option">
+            <i class="bx bx-search-alt-2"></i>
+          </div>
+
+          <div class="icon-option">
+            <i class="bx bx-heart"></i>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-details">
+      <h1 class="name-item">Calabresa Saturno</h1>
+
+      <section class="info-details">
+        <div class="item-raiting">
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star-half"></i>
+          <p>4.5(2.5k)</p>
+        </div>
+
+        <div class="description-details"></div>
+
+        <div class="galery-detail">
+          <a href="#image01" class="galery-image">
+            <img
+              id="image-pizza1"
+              src="./assets/pizza_calabresa.jpg"
+              alt="Pizza Calabresa"
+            />
+          </a>
+
+          <a href="#" class="lightbox" id="image01">
+            <span style="background-image: url(./assets/pizza_calabresa.jpg)">
+              <p>Experimente também a nossa Calabresa Saturno</p>
+            </span>
+          </a>
+
+          <a href="#" class="lightbox" id="image02">
+            <span style="background-image: url(./assets/pizza_de_frango.jpg)">
+              <p>Experimente também a nossa Vênus Frango</p>
+            </span>
+          </a>
+
+          <a href="#image02" class="galery-image">
+            <img
+              id="image-pizza2"
+              src="./assets/pizza_de_frango.jpg"
+              alt="Pizza Carne"
+            />
+          </a>
+        </div>
+
+        <div class="buy-item">
+          <div>
+            <button class="size-btn" data-size="P">P</button>
+            <button class="size-btn" data-size="M">M</button>
+            <button class="size-btn" data-size="G">G</button>
+          </div>
+
+          <p class="price-item">R$ <span id="price"></span></p>
+
+          <a onclick="openOrderConfirm()" class="option-detail">Comprar Pizza <i class="bx bx-cart-add"></i></a>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const pizzaDescription = {
+        Calabresa_Saturno:
+          "A Calabresa Saturno é uma explosão de sabor que vai te levar para outra órbita! Essa pizza irresistível combina uma generosa camada de molho de tomate artesanal, queijo muçarela derretido e rodelas suculentas de calabresa levemente picante. Para um toque especial, adicionamos cebolas caramelizadas, azeitonas pretas e um fio de azeite de ervas, garantindo uma experiência cósmica a cada mordida. Finalizada com orégano fresco e borda crocante, a Calabresa Saturno é perfeita para quem busca um sabor intenso e marcante.",
+        Frango_Vênus:
+          "A Vênus Frango é uma pizza apaixonante, digna do planeta mais quente do sistema solar! Com uma base de molho de tomate artesanal e uma generosa camada de queijo muçarela derretido, essa delícia é coberta com suculentos pedaços de frango desfiado, temperados na medida certa. Para deixar tudo ainda mais irresistível, adicionamos catupiry cremoso, milho doce e um toque de páprica defumada, trazendo um equilíbrio perfeito entre sabor e cremosidade. Finalizada com orégano fresco e uma borda dourada e crocante, a Vênus Frango promete conquistar seu paladar desde a primeira mordida!",
+        Carne_terra:
+          "A Carne Terra é a pizza perfeita para quem busca um sabor robusto e irresistível! Sobre uma base de molho de tomate artesanal, espalhamos uma generosa camada de queijo muçarela derretido e suculentos pedaços de carne desfiada temperada com especiarias selecionadas. Para um toque especial, adicionamos cebolas roxas levemente caramelizadas, pimentões assados e um fio de azeite de alho, garantindo um aroma e um sabor marcantes. Finalizada com orégano fresco e uma borda crocante, a Carne Terra é a escolha ideal para os amantes de um sabor intenso e autêntico!",
+        Chocolate_Netuno:
+          "A Chocolate Netuno é uma viagem intergaláctica para os amantes do doce! Sobre uma massa leve e macia, espalhamos uma generosa camada de chocolate cremoso derretido, criando uma base irresistível. Para tornar essa experiência ainda mais especial, adicionamos pedaços de chocolate ao leite e branco, que derretem suavemente a cada mordida. Finalizada com um toque de avelãs crocantes e um leve pó de cacau, a Chocolate Netuno é a combinação perfeita entre cremosidade e intensidade, levando seu paladar a uma verdadeira órbita de prazer!",
+        Queijo_Lua:
+          "A Queijo Lua é uma pizza delicada e sofisticada, perfeita para quem adora o sabor suave e cremoso do queijo! Sobre uma base fina e crocante, espalhamos um delicioso molho branco, criando uma camada rica e suave. A pizza é generosamente coberta com uma mistura de queijos selecionados, como muçarela, parmesão e gorgonzola, que derretem de forma cremosa e envolvem o paladar com intensidade. Para um toque especial, finalizamos com um leve fio de azeite de oliva e um toque de ervas finas, criando uma combinação perfeita de sabor e leveza. A Queijo Lua é a escolha ideal para quem busca uma experiência gastronômica elegante e cheia de sabor!",
+        Portuguesa_Urano:
+          "A Portuguesa Urano é uma pizza que traz um universo de sabores a cada pedaço! Em sua base de molho de tomate artesanal, espalhamos uma camada generosa de queijo muçarela, que se derrete de forma perfeita. A combinação de presunto, ovos cozidos, azeitonas pretas, cebolas roxas e pimentões adiciona uma mistura de texturas e sabores intensos. Para um toque especial, a Portuguesa Urano é finalizada com orégano fresco e um fio de azeite de oliva, criando uma explosão de frescor e sabor. Uma verdadeira viagem interplanetária de gostos que vai conquistar seu paladar!",
+      };
+
+      const sizeButtons = document.querySelectorAll(".size-btn");
+      const priceElement = document.getElementById("price");
+      
+      
+
+      // Pegando parâmetros da URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const pizzaName = urlParams.get("pizza"); // Nome da pizza, usado para buscar a descrição
+      const itemName = urlParams.get("name");
+      const itemImage = urlParams.get("image");
+      const priceP = parseFloat(urlParams.get("priceP")) || 0;
+      const priceM = parseFloat(urlParams.get("priceM")) || 0;
+      const priceG = parseFloat(urlParams.get("priceG")) || 0;
+      const imagePizza1 = urlParams.get("pizza1");
+      const imagePizza2 = urlParams.get("pizza2");
+
+     
+      // Definição da variável prices
+      const prices = {
+        P: priceP,
+        M: priceM,
+        G: priceG,
+      };
+
+      // Atualizando elementos da página
+      const ImageElement1 = document.getElementById("image-pizza1")
+      const ImageElement2 = document.getElementById("image-pizza2")
+      const descriptionElement = document.querySelector(".description-details");
+      const imageDetail = document.querySelector(".image-item");
+      const nameDetail = document.querySelector(".name-item");
+
+     
+
+      // Atualizando nome e imagem da pizza
+      nameDetail.textContent = itemName;
+      imageDetail.src = "assets/" + itemImage;
+
+      // Atualizando a descrição da pizza com base no nome passado pela URL
+      if (pizzaName && pizzaDescription[pizzaName]) {
+        descriptionElement.textContent = pizzaDescription[pizzaName];
+      } else {
+        descriptionElement.textContent = "Descrição não disponível.";
+      }
+
+      // Adicionando evento de clique nos botões de tamanho
+      sizeButtons.forEach((button) => {
+        button.addEventListener("click", function () {
+          const selectedSize = this.getAttribute("data-size");
+
+          // Verifica se o preço existe antes de atualizar o texto
+          if (prices[selectedSize] !== undefined) {
+            priceElement.textContent = prices[selectedSize].toFixed(2);
+          }
+
+          // Atualizando classes de botão ativo
+          sizeButtons.forEach((btn) => btn.classList.remove("active"));
+          this.classList.add("active");
+        });
+      });
+
+      function openOrderConfirm(){
+        window.open('confirm_order.html?name=' + itemName + '&image=' +itemImage,'_self');
+      }
+    </script>
+  </body>
+</html>

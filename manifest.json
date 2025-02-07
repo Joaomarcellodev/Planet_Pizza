@@ -1,0 +1,36 @@
+{
+    "name": "Planet Pizza",
+    "short_name": "Planet Pizza",
+    "start_url":"index.html",
+    "backgound-color": "orange",
+    "theme_color": "orange",
+    "orientation": "portrait-primary",
+    "icons":[
+        {
+            "src": "/assets/Planeta_Pizza.png",
+            "type":"image/png", "size": "72x72"
+        },
+
+        {
+            "src": "/assets/Planeta_Pizza.png",
+            "type":"image/png", "size": "96x96"
+        },
+
+        {
+            "src": "/assets/Planeta_Pizza.png",
+            "type":"image/png", "size": "128x128"
+        },
+
+        {
+            "src": "/assets/Planeta_Pizza.png",
+            "type":"image/png", "size": "384x384"
+        },
+
+        {
+            "src": "/assets/Planeta_Pizza.png",
+            "type":"image/png", "size": "512x512"
+        }
+
+       
+    ]
+}

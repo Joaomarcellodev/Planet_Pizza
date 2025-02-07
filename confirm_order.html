@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Planet Pizzaria</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="app_bar">
+      <a href="index.html">
+        <i class="bx bx-home"></i>
+      </a>
+
+      <div class="app_logo">
+        <img src="./assets/Planeta_Pizzaria.png" alt="Logo Planet_Pizza" />
+      </div>
+
+      <i class="bx bxs-cart"></i>
+    </header>
+
+    <main class="home-confirm">
+      <h1>Confirme seu pedido</h1>
+
+      <section class="order-itens">
+        <div class="order-card">
+          <div class="card-image">
+            <img id="iten-image"  src="./assets/pizza-portuguesa.webp" alt="" />
+          </div>
+
+          <div class="card-details">
+            <h2 id="iten-name">Portuguesa Urano</h2>
+
+            <h3 id="iten-price">Tam. P R$ 38.00</h3>
+
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+          </div>
+
+        </div>
+
+        <a href="#" class="button-confirm" onclick="openWpp()">
+          <i class='bx bxl-whatsapp'></i>Fazer Pedido
+      </a>
+      </section>
+    </main>
+
+    <script>
+        
+        const urlParams = new URLSearchParams(window.location.search);
+
+        const itemName = urlParams.get('name');
+        const itemImage = urlParams.get('image');
+
+        const elementName = document.querySelector('#iten-name')
+        const elementImage = document.querySelector('#iten-image')
+
+        elementName.textContent = itemName;
+        elementImage.src = "assets/" + itemImage;
+
+
+        function openWpp(){
+          window.open('https://wa.me/5586988109565?text=Quero%20fazer%20um%20pedido da pizza ' + itemName)
+        }
+        
+    </script>
+  </body>
+</html>
